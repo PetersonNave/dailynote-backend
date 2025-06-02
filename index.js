@@ -91,6 +91,7 @@ app.post("/finishMeeting", async (req, res) => {
         decision: JSON.stringify(decision),  
         actions:   JSON.stringify(actions),
         feedbacks: JSON.stringify(feedbacks),
+        createdAt: '2025-06-25',
       },
     });
     res.json({ id: finish.id });
