@@ -96,7 +96,7 @@ app.post("/finishMeeting", async (req, res) => {
     res.json({ id: finish.id });
   } catch (error) {
     console.error("Erro ao finalizar reunião:", error);
-    res.status(500).json({ error: "Erro ao finalizar reunião" });
+    res.status(500).json({ error: "Erro ao finalizar reunião", log: error });
   }
 });
 app.get("/finishMeeting/:id", async (req, res) => {
