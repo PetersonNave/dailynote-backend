@@ -81,6 +81,8 @@ app.get("/meetings", async (req, res) => {
 
 app.post("/finishMeeting", async (req, res) => {
   const { meetingId, duration, notes, decision, actions, feedbacks } = req.body;
+  const dateString = "2025-06-25";
+  const dateOnly = new Date(dateString + "T00:00:00Z");
 
   try {
     const finish = await prisma.finishMeeting.create({
@@ -91,7 +93,7 @@ app.post("/finishMeeting", async (req, res) => {
         decision: JSON.stringify(decision),  
         actions:   JSON.stringify(actions),
         feedbacks: JSON.stringify(feedbacks),
-        createdAt: '2025-06-25',
+        createdAt: dateOnly
       },
     });
     res.json({ id: finish.id });
